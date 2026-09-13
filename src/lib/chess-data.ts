@@ -176,6 +176,7 @@ function buildCafes(): Cafe[] {
       name: "Kawiarnia Czytelnik Nowe Wydanie",
       district: "Śródmieście",
       address: "ul. Wiejska 12A, Warszawa",
+      logo: "/figma/czytelnik-logo.jpeg",
       titlePool: [
         "Szachowy Wieczór",
         "Wieczorne Szachy",
@@ -200,6 +201,7 @@ function buildCafes(): Cafe[] {
       name: "Centrum Dobrej Kultury",
       district: "Targówek",
       address: "Księcia Ziemowita 39, Warszawa",
+      logo: "/figma/cdk-logo.jpeg",
       titlePool: [
         "Liga Mistrzów",
         "Turniej Mistrzów",
