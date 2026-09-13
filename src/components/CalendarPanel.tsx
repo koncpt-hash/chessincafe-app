@@ -70,10 +70,12 @@ export function CalendarPanel({
               title={hasEvents?.join(", ")}
               onClick={() => onSelectDate(iso)}
               className={[
-                "py-1.5",
-                hasEvents ? "text-ink" : "text-[#333333]",
+                "py-1.5 border",
+                hasEvents
+                  ? "bg-surface-2 border-border-strong text-ink hover:bg-surface-3"
+                  : "border-transparent text-[#333333]",
                 isToday ? "underline" : "",
-                isSelected ? "!bg-accent !text-accent-ink" : "",
+                isSelected ? "!bg-accent !border-accent !text-accent-ink" : "",
               ].join(" ")}
             >
               {d}
