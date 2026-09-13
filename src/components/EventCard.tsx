@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { Occurrence } from "@/lib/chess-data";
 import { dateParts, weekdayPL, initials } from "@/lib/chess-data";
-import { PinIcon } from "./PinIcon";
 
 export function EventCard({
   occ,
@@ -20,98 +20,105 @@ export function EventCard({
 
   return (
     <div className="border border-border bg-surface">
-      <div className="flex flex-row items-start gap-4 p-4">
-        <div className="flex-1 min-w-0 flex flex-col gap-2">
-          <span className="font-mono-data text-[length:var(--fs-label)] text-faint">
-            {day} {monthShort} &middot; {weekdayPL(occ.effIso)}, {occ.time}
-          </span>
+      <div className="flex flex-col lg:flex-row items-start gap-4 lg:gap-9 p-5">
+        <div className="flex flex-row lg:flex-col gap-4 lg:gap-2 lg:w-[130px] shrink-0">
+          <p className="font-display text-[length:var(--fs-card-title)] font-bold leading-tight text-ink">
+            {day} {monthShort.slice(0, 1) + monthShort.slice(1).toLowerCase()}
+          </p>
+          <div className="font-body text-[length:var(--fs-body-lg)] text-ink">
+            <p>{weekdayPL(occ.effIso)}</p>
+            <p>{occ.time}</p>
+          </div>
+        </div>
 
-          <h3 className="font-display text-[length:var(--fs-card-title)] font-semibold leading-snug text-ink">
-            {occ.effTitle}
+        <div className="flex-1 min-w-0 flex flex-col gap-3">
+          <h3 className="font-display text-[length:var(--fs-card-title)] font-bold leading-tight text-ink">
+            {occ.effTitle} sezon „{occ.seasonName}”
           </h3>
-          <span className="text-[length:var(--fs-label)] font-semibold text-muted">
-            Sezon „{occ.seasonName}” &middot; runda {occ.effRound} z {occ.seasonTotal}
-          </span>
 
-          <div className="flex items-start gap-1.5 text-[length:var(--fs-label)] text-muted">
-            <PinIcon className="size-3.5 mt-0.5 shrink-0 text-faint" />
-            <span>
-              {occ.name} &middot; {occ.district} &middot; {occ.address}
-            </span>
+          <div className="flex flex-col gap-0.5 font-body text-[length:var(--fs-body-lg)] text-ink">
+            <p className="font-bold">{occ.name}</p>
+            <p>
+              {occ.district}, {occ.address}
+            </p>
           </div>
 
-          <div className="flex items-center gap-2 mt-0.5">
+          <div className="flex items-center gap-2.5">
             {occ.players.length ? (
               <>
                 <div className="flex">
                   {avatars.map((p, i) => (
                     <div
                       key={p}
-                      className="size-[22px] rounded-full bg-surface-2 border-[1.5px] border-surface outline outline-border-strong flex items-center justify-center font-mono-data text-[length:var(--fs-avatar)] font-semibold text-ink"
-                      style={{ marginLeft: i === 0 ? 0 : -6 }}
+                      className="size-6 rounded-full bg-surface-2 border-[1.5px] border-surface outline outline-border-strong flex items-center justify-center font-mono-data text-[length:var(--fs-avatar)] font-semibold text-ink"
+                      style={{ marginLeft: i === 0 ? 0 : -8 }}
                     >
                       {initials(p)}
                     </div>
                   ))}
                   {restCount > 0 && (
                     <div
-                      className="size-[22px] rounded-full bg-surface-2 border-[1.5px] border-surface outline outline-border-strong flex items-center justify-center font-mono-data text-[length:var(--fs-avatar)] font-semibold text-ink"
-                      style={{ marginLeft: -6 }}
+                      className="size-6 rounded-full bg-surface-2 border-[1.5px] border-surface outline outline-border-strong flex items-center justify-center font-mono-data text-[length:var(--fs-avatar)] font-semibold text-ink"
+                      style={{ marginLeft: -8 }}
                     >
                       +{restCount}
                     </div>
                   )}
                 </div>
-                <small className="text-[length:var(--fs-caption)] text-faint">
-                  {occ.registered}/{occ.capacity} &middot; śr. poziom {occ.avgLevel}
-                </small>
+                <span className="font-body text-[length:var(--fs-body-lg)] text-ink whitespace-nowrap">
+                  {occ.registered}/{occ.capacity} śr. poziom {occ.avgLevel}
+                </span>
               </>
             ) : (
-              <small className="text-[length:var(--fs-caption)] text-faint">Bądź pierwszym zapisanym</small>
+              <span className="font-body text-[length:var(--fs-body-lg)] text-ink">Bądź pierwszym zapisanym</span>
             )}
           </div>
 
-          <div className="text-[length:var(--fs-body)] font-semibold text-ink">Cena: {occ.price}</div>
+          <div className="font-body text-[length:var(--fs-card-title)] font-bold text-ink">{occ.price}</div>
 
-          <div className="flex flex-wrap gap-2 pt-1.5">
+          <div className="flex flex-wrap gap-3.5 items-center pt-0.5">
             {signedUp ? (
               <div className="flex flex-col gap-1">
                 <button
                   disabled
-                  className="bg-accent text-ink px-3 py-2 text-[length:var(--fs-body)] font-semibold opacity-60 cursor-default"
+                  className="bg-accent text-accent-ink px-7 py-3.5 text-[length:var(--fs-body)] font-bold font-body opacity-60 cursor-default"
                 >
                   Przechodzę do logowania…
                 </button>
-                <span className="text-[length:var(--fs-caption)] text-faint">
+                <span className="text-[length:var(--fs-caption)] text-faint font-body">
                   Ostatni krok: krótki ekran logowania, potem wracasz dokładnie tutaj.
                 </span>
               </div>
             ) : (
               <button
                 onClick={() => setSignedUp(true)}
-                className="bg-accent text-ink px-3 py-2 text-[length:var(--fs-body)] font-semibold hover:bg-ink hover:text-accent transition-colors"
+                className="flex items-center gap-2 bg-accent text-accent-ink px-7 py-3.5 text-[length:var(--fs-body)] font-bold font-body hover:opacity-90 transition-opacity"
               >
                 Zapisz się na turniej
+                <svg viewBox="0 0 16 16" fill="none" className="size-4" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.3328 8H12.6672M8 12.6672L12.6672 8L8 3.3328" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
               </button>
             )}
             <button
               onClick={() => onOpenDetails(occ.id, occ.effIso)}
-              className="border border-border-strong text-ink px-3 py-2 text-[length:var(--fs-body)] font-semibold hover:bg-surface-2 transition-colors"
+              className="border border-border-strong text-ink bg-surface px-7 py-3.5 text-[length:var(--fs-body)] font-bold font-body hover:bg-surface-2 transition-colors"
             >
               Szczegóły
             </button>
           </div>
         </div>
 
-        <div
-          className="flex shrink-0 size-16 border border-border-strong items-center justify-center font-mono-data text-[length:var(--fs-body)] font-bold text-faint"
-          style={{
-            backgroundColor: "var(--surface-2)",
-            backgroundImage:
-              "repeating-linear-gradient(45deg, var(--surface-3) 0 6px, var(--surface-2) 6px 12px)",
-          }}
-        >
-          {initials(occ.name)}
+        <div className="p-2.5 shrink-0">
+          <div className="border border-border-strong size-[120px] relative overflow-hidden bg-surface-2">
+            {occ.logo ? (
+              <Image src={occ.logo} alt={occ.name} fill sizes="120px" className="object-cover" />
+            ) : (
+              <div className="size-full flex items-center justify-center font-mono-data text-[length:var(--fs-card-title)] font-bold text-faint">
+                {initials(occ.name)}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

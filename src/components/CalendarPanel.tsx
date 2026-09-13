@@ -38,28 +38,22 @@ export function CalendarPanel({
   ];
 
   return (
-    <div className="border border-border p-3.5 flex flex-col gap-2.5">
-      <div className="flex justify-between items-center text-[length:var(--fs-body)] font-semibold text-ink">
-        <button
-          onClick={() => onNavMonth(-1)}
-          aria-label="Poprzedni miesiąc"
-          className="border border-border-strong size-[22px] text-[length:var(--fs-label)] text-muted hover:bg-surface-2"
-        >
+    <div className="border border-border bg-surface p-3.5 flex flex-col gap-2.5 w-[404px] max-w-full">
+      <div className="flex justify-between items-center font-body text-[length:var(--fs-body)] font-bold text-ink">
+        <button onClick={() => onNavMonth(-1)} aria-label="Poprzedni miesiąc" className="text-muted hover:text-ink">
           ‹
         </button>
-        <span className="font-mono-data capitalize">{monthLabel(year, month)}</span>
-        <button
-          onClick={() => onNavMonth(1)}
-          aria-label="Następny miesiąc"
-          className="border border-border-strong size-[22px] text-[length:var(--fs-label)] text-muted hover:bg-surface-2"
-        >
+        <span className="font-body text-[length:var(--fs-heading-sm)] font-bold capitalize">
+          {monthLabel(year, month)}
+        </span>
+        <button onClick={() => onNavMonth(1)} aria-label="Następny miesiąc" className="text-muted hover:text-ink">
           ›
         </button>
       </div>
 
-      <div className="grid grid-cols-7 gap-[3px] text-[length:var(--fs-caption)] text-center">
+      <div className="grid grid-cols-7 gap-[3px] text-[length:var(--fs-label)] text-center font-body font-bold">
         {DOW.map((d) => (
-          <span key={d} className="text-faint text-[length:var(--fs-micro)] pb-0.5">
+          <span key={d} className="text-[#333333] pb-0.5">
             {d}
           </span>
         ))}
@@ -76,12 +70,10 @@ export function CalendarPanel({
               title={hasEvents?.join(", ")}
               onClick={() => onSelectDate(iso)}
               className={[
-                "py-1.5 pb-2 border",
-                hasEvents
-                  ? "bg-surface-2 border-border-strong font-bold text-ink hover:bg-surface-3"
-                  : "border-transparent text-faint",
-                isToday ? "border-ink" : "",
-                isSelected ? "!bg-accent !text-ink" : "",
+                "py-1.5",
+                hasEvents ? "text-ink" : "text-[#333333]",
+                isToday ? "underline" : "",
+                isSelected ? "!bg-accent !text-accent-ink" : "",
               ].join(" ")}
             >
               {d}

@@ -80,17 +80,17 @@ export default function Home() {
     : `Wybierz termin gry`;
 
   return (
-    <div className="max-w-[1180px] w-full mx-auto px-6 py-10 flex flex-col gap-5">
+    <div className="max-w-[1440px] w-full mx-auto px-11 py-10 flex flex-col gap-5">
       <header className="flex flex-col gap-1">
-        <h1 className="font-display text-[length:var(--fs-page-title)] font-semibold text-ink">
+        <h1 className="font-display text-[length:var(--fs-page-title)] font-bold text-ink">
           {heading}{" "}
           {!selectedDate && (
-            <span className="capitalize font-normal text-muted">
+            <span className="capitalize font-normal">
               &middot; {monthLabel(calYear, calMonth)}
             </span>
           )}
         </h1>
-        <p className="text-[length:var(--fs-body)] text-muted">
+        <p className="font-body text-[length:var(--fs-body-lg)] text-ink">
           Zapisz się na pojedyncze spotkanie albo dołącz do sezonu w swojej kawiarni.
         </p>
       </header>
@@ -104,7 +104,7 @@ export default function Home() {
         onDiff={setDiff}
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_230px] gap-4.5 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_404px] gap-8 items-start">
         <div className="flex flex-col gap-2.5 order-2 lg:order-1">
           {list.length ? (
             list.map((occ) => (

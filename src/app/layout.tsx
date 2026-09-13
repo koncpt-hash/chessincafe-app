@@ -15,7 +15,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* Zmieniasz fonty tutaj: podmień URL na inny z fonts.google.com (przycisk "Get font" -> "Use on the web" -> skopiuj link @import/href),
             a nazwę rodziny podmień też w globals.css (--font-display / --font-body / --font-mono-data). */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Brygada+1918:wght@500;600;700&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Merriweather+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap"
           rel="stylesheet"
         />
       </head>

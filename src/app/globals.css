@@ -7,32 +7,34 @@
    ============================================================ */
 :root {
   /* --- KOLORY --- */
-  --bg: #eeebe4;           /* tło całej strony */
+  --bg: #faf6f2;           /* tło całej strony */
   --surface: #ffffff;      /* tło kart, panelu szczegółów */
   --surface-2: #e3e0d8;    /* tło belki filtrów, odznak, kalendarza */
   --surface-3: #d6d2c6;    /* tło dla stanu hover na jasnych elementach */
   --border: #d8d4ca;       /* cienkie linie/ramki */
-  --border-strong: #b5b0a1;/* wyraźniejsze ramki (przyciski outline, dziś w kalendarzu) */
+  --border-strong: #b4b4b4;/* wyraźniejsze ramki (przyciski outline, zdjęcie kawiarni) */
   --ink: #000000;          /* główny kolor tekstu i przycisków */
-  --muted: #504e47;        /* tekst drugorzędny */
+  --muted: #504e47;        /* tekst drugorzędny (dziś: tylko placeholdery w belce filtrów) */
   --faint: #8c8878;        /* tekst trzeciorzędny / etykiety */
-  --accent: #beff8b;       /* kolor akcentu — CTA, zaznaczony dzień w kalendarzu */
-  --accent-ink: #000000;   /* kolor tekstu NA akcencie (musi się odróżniać od --accent) */
+  --accent: #04e4dd;       /* kolor akcentu — CTA, zaznaczony dzień w kalendarzu */
+  --accent-ink: #101210;   /* kolor tekstu NA akcencie (musi się odróżniać od --accent) */
   --accent-2: #4f6b72;     /* drugi akcent w zapasie, dziś nieużywany */
 
   /* --- CZCIONKI (nazwy muszą zgadzać się z linkiem w layout.tsx <head>) --- */
-  --font-display-value: "Brygada 1918", Georgia, serif;   /* tytuły turniejów, nagłówki */
-  --font-body-value: "Karla", system-ui, sans-serif;       /* cały pozostały tekst i UI */
-  --font-mono-data-value: "JetBrains Mono", ui-monospace, monospace; /* daty, liczby, ceny */
+  --font-display-value: "Merriweather", Georgia, serif;         /* tytuły turniejów, nagłówki */
+  --font-body-value: "Merriweather Sans", system-ui, sans-serif; /* cały pozostały tekst i UI */
+  --font-mono-data-value: "JetBrains Mono", ui-monospace, monospace; /* liczby w panelu szczegółów */
 
   /* --- SKALA WIELKOŚCI CZCIONEK (w px) --- */
-  --fs-page-title: 26px;   /* "Wybierz termin gry" na górze strony */
+  --fs-page-title: 32px;   /* "Wybierz termin gry" na górze strony */
   --fs-panel-title: 24px;  /* tytuł turnieju w panelu szczegółów */
-  --fs-card-title: 18px;   /* tytuł turnieju na karcie listy */
-  --fs-body: 14px;         /* zwykły tekst, przyciski, pola formularzy */
-  --fs-label: 12px;        /* etykiety, daty, badge'e, linki pomocnicze */
-  --fs-caption: 11px;      /* drobne podpisy (np. "5/16 śr. poziom 650") */
-  --fs-micro: 10px;        /* dni tygodnia w kalendarzu, drobne odznaki */
+  --fs-card-title: 26px;   /* tytuł turnieju, data i cena na karcie listy */
+  --fs-heading-sm: 18px;   /* nagłówek miesiąca w kalendarzu */
+  --fs-body-lg: 16px;      /* tekst kawiarni/adresu/uczestników na karcie */
+  --fs-body: 14px;         /* przyciski, pola formularzy, belka filtrów */
+  --fs-label: 12px;        /* etykiety, dni tygodnia i cyfry w kalendarzu */
+  --fs-caption: 11px;      /* drobne podpisy */
+  --fs-micro: 10px;        /* drobne odznaki */
   --fs-avatar: 9px;        /* inicjały w awatarach */
 }
 /* ============================================================

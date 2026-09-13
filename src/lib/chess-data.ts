@@ -14,6 +14,7 @@ export interface Cafe {
   name: string;
   district: string;
   address: string;
+  logo?: string;
   titlePool: string[];
   difficulty: Difficulty;
   difficultyLabel: string;
@@ -150,6 +151,7 @@ function buildCafes(): Cafe[] {
       name: "Dobroczynna",
       district: "Mokotów",
       address: "ul. Jarosława Dąbrowskiego 30, Warszawa",
+      logo: "/figma/dobroczynna-logo.png",
       titlePool: [
         "Szachy dla Całej Rodziny",
         "Poranek z Szachami",
