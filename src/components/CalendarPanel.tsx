@@ -81,7 +81,7 @@ export function CalendarPanel({
                   ? "bg-surface-2 border-border-strong font-bold text-ink hover:bg-surface-3"
                   : "border-transparent text-faint",
                 isToday ? "border-ink" : "",
-                isSelected ? "!bg-ink !text-accent-ink" : "",
+                isSelected ? "!bg-accent !text-ink" : "",
               ].join(" ")}
             >
               {d}

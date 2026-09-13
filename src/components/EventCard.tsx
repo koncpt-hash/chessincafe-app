@@ -78,7 +78,7 @@ export function EventCard({
               <div className="flex flex-col gap-1">
                 <button
                   disabled
-                  className="bg-ink text-accent-ink px-3 py-2 text-sm font-semibold opacity-60 cursor-default"
+                  className="bg-accent text-ink px-3 py-2 text-sm font-semibold opacity-60 cursor-default"
                 >
                   Przechodzę do logowania…
                 </button>
@@ -89,7 +89,7 @@ export function EventCard({
             ) : (
               <button
                 onClick={() => setSignedUp(true)}
-                className="bg-ink text-accent-ink px-3 py-2 text-sm font-semibold hover:bg-accent transition-colors"
+                className="bg-accent text-ink px-3 py-2 text-sm font-semibold hover:bg-ink hover:text-accent transition-colors"
               >
                 Zapisz się na turniej
               </button>

@@ -142,7 +142,7 @@ function DetailPanelBody({
                 <>
                   <button
                     disabled
-                    className="bg-ink text-accent-ink py-2.5 text-sm font-semibold opacity-60"
+                    className="bg-accent text-ink py-2.5 text-sm font-semibold opacity-60"
                   >
                     Przechodzę do logowania…
                   </button>
@@ -153,7 +153,7 @@ function DetailPanelBody({
               ) : (
                 <button
                   onClick={() => setSignedUp(true)}
-                  className="bg-ink text-accent-ink py-2.5 text-sm font-semibold hover:bg-accent transition-colors max-w-[340px]"
+                  className="bg-accent text-ink py-2.5 text-sm font-semibold hover:bg-ink hover:text-accent transition-colors max-w-[340px]"
                 >
                   Zapisz się na turniej
                 </button>
