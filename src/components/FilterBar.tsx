@@ -21,7 +21,7 @@ export function FilterBar({
   const [open, setOpen] = useState(false);
 
   const fields = (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 border border-border bg-surface-2 p-3">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 border border-border bg-surface-2">
       <div className="flex items-center gap-1.5 bg-surface border border-border w-full">
         <span className="font-mono-data pl-2.5 text-[length:var(--fs-body)] text-muted">⌕</span>
         <input
