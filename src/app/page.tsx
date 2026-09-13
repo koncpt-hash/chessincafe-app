@@ -82,7 +82,7 @@ export default function Home() {
   return (
     <div className="max-w-[1180px] w-full mx-auto px-6 py-10 flex flex-col gap-5">
       <header className="flex flex-col gap-1">
-        <h1 className="font-display text-[26px] font-semibold text-ink">
+        <h1 className="font-display text-[length:var(--fs-page-title)] font-semibold text-ink">
           {heading}{" "}
           {!selectedDate && (
             <span className="capitalize font-normal text-muted">
@@ -90,7 +90,7 @@ export default function Home() {
             </span>
           )}
         </h1>
-        <p className="text-sm text-muted">
+        <p className="text-[length:var(--fs-body)] text-muted">
           Zapisz się na pojedyncze spotkanie albo dołącz do sezonu w swojej kawiarni.
         </p>
       </header>
@@ -111,7 +111,7 @@ export default function Home() {
               <EventCard key={`${occ.id}-${occ.effIso}`} occ={occ} onOpenDetails={openDetails} />
             ))
           ) : (
-            <div className="border border-dashed border-border text-center text-sm text-faint py-10 px-3">
+            <div className="border border-dashed border-border text-center text-[length:var(--fs-body)] text-faint py-10 px-3">
               Brak wydarzeń pasujących do filtrów w tym miesiącu. Spróbuj innego miesiąca lub usuń
               część kryteriów.
             </div>

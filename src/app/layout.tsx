@@ -1,24 +1,5 @@
 import type { Metadata } from "next";
-import { Brygada_1918, Karla, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
-const brygada1918 = Brygada_1918({
-  variable: "--font-display-raw",
-  subsets: ["latin", "latin-ext"],
-  weight: ["500", "600", "700"],
-});
-
-const karla = Karla({
-  variable: "--font-body-raw",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono-data-raw",
-  subsets: ["latin"],
-  weight: ["500", "600"],
-});
 
 export const metadata: Metadata = {
   title: "Terminarz | ChessInCafe",
@@ -27,10 +8,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="pl"
-      className={`${brygada1918.variable} ${karla.variable} ${jetbrainsMono.variable} h-full antialiased`}
-    >
+    <html lang="pl" className="h-full antialiased">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Zmieniasz fonty tutaj: podmień URL na inny z fonts.google.com (przycisk "Get font" -> "Use on the web" -> skopiuj link @import/href),
+            a nazwę rodziny podmień też w globals.css (--font-display / --font-body / --font-mono-data). */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Brygada+1918:wght@500;600;700&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-bg text-ink font-body">{children}</body>
     </html>
   );

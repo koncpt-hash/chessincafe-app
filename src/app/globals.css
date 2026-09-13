@@ -1,19 +1,45 @@
 @import "tailwindcss";
 
+/* ============================================================
+   PANEL STYLU — edytuj tylko tę sekcję, żeby zmienić wygląd
+   całej strony. Zapisz plik, zrób `git push` (albo daj znać
+   Claude'owi "publikuj") — Vercel zbuduje i wdroży resztę sam.
+   ============================================================ */
 :root {
-  --bg: #eeebe4;
-  --surface: #ffffff;
-  --surface-2: #e3e0d8;
-  --surface-3: #d6d2c6;
-  --border: #d8d4ca;
-  --border-strong: #b5b0a1;
-  --ink: #000000;
-  --muted: #504e47;
-  --faint: #8c8878;
-  --accent: #beff8b;
-  --accent-ink: #000000;
-  --accent-2: #4f6b72;
+  /* --- KOLORY --- */
+  --bg: #eeebe4;           /* tło całej strony */
+  --surface: #ffffff;      /* tło kart, panelu szczegółów */
+  --surface-2: #e3e0d8;    /* tło belki filtrów, odznak, kalendarza */
+  --surface-3: #d6d2c6;    /* tło dla stanu hover na jasnych elementach */
+  --border: #d8d4ca;       /* cienkie linie/ramki */
+  --border-strong: #b5b0a1;/* wyraźniejsze ramki (przyciski outline, dziś w kalendarzu) */
+  --ink: #000000;          /* główny kolor tekstu i przycisków */
+  --muted: #504e47;        /* tekst drugorzędny */
+  --faint: #8c8878;        /* tekst trzeciorzędny / etykiety */
+  --accent: #beff8b;       /* kolor akcentu — CTA, zaznaczony dzień w kalendarzu */
+  --accent-ink: #000000;   /* kolor tekstu NA akcencie (musi się odróżniać od --accent) */
+  --accent-2: #4f6b72;     /* drugi akcent w zapasie, dziś nieużywany */
+
+  /* --- CZCIONKI (nazwy muszą zgadzać się z linkiem w layout.tsx <head>) --- */
+  --font-display-value: "Brygada 1918", Georgia, serif;   /* tytuły turniejów, nagłówki */
+  --font-body-value: "Karla", system-ui, sans-serif;       /* cały pozostały tekst i UI */
+  --font-mono-data-value: "JetBrains Mono", ui-monospace, monospace; /* daty, liczby, ceny */
+
+  /* --- SKALA WIELKOŚCI CZCIONEK (w px) --- */
+  --fs-page-title: 26px;   /* "Wybierz termin gry" na górze strony */
+  --fs-panel-title: 24px;  /* tytuł turnieju w panelu szczegółów */
+  --fs-card-title: 18px;   /* tytuł turnieju na karcie listy */
+  --fs-body: 14px;         /* zwykły tekst, przyciski, pola formularzy */
+  --fs-label: 12px;        /* etykiety, daty, badge'e, linki pomocnicze */
+  --fs-caption: 11px;      /* drobne podpisy (np. "5/16 śr. poziom 650") */
+  --fs-micro: 10px;        /* dni tygodnia w kalendarzu, drobne odznaki */
+  --fs-avatar: 9px;        /* inicjały w awatarach */
 }
+/* ============================================================
+   KONIEC PANELU STYLU — poniżej jest już tylko techniczne
+   podłączenie powyższych zmiennych pod Tailwind. Nie trzeba
+   tego ruszać, żeby zmienić wygląd strony.
+   ============================================================ */
 
 @theme inline {
   --color-bg: var(--bg);
@@ -29,9 +55,9 @@
   --color-accent-ink: var(--accent-ink);
   --color-accent-2: var(--accent-2);
 
-  --font-display: var(--font-display-raw), ui-serif, Georgia, serif;
-  --font-body: var(--font-body-raw), ui-sans-serif, system-ui, sans-serif;
-  --font-mono-data: var(--font-mono-data-raw), ui-monospace, monospace;
+  --font-display: var(--font-display-value);
+  --font-body: var(--font-body-value);
+  --font-mono-data: var(--font-mono-data-value);
 }
 
 ::selection {

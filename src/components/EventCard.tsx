@@ -22,18 +22,18 @@ export function EventCard({
     <div className="border border-border bg-surface">
       <div className="flex flex-row items-start gap-4 p-4">
         <div className="flex-1 min-w-0 flex flex-col gap-2">
-          <span className="font-mono-data text-xs text-faint">
+          <span className="font-mono-data text-[length:var(--fs-label)] text-faint">
             {day} {monthShort} &middot; {weekdayPL(occ.effIso)}, {occ.time}
           </span>
 
-          <h3 className="font-display text-lg font-semibold leading-snug text-ink">
+          <h3 className="font-display text-[length:var(--fs-card-title)] font-semibold leading-snug text-ink">
             {occ.effTitle}
           </h3>
-          <span className="text-xs font-semibold text-muted">
+          <span className="text-[length:var(--fs-label)] font-semibold text-muted">
             Sezon „{occ.seasonName}” &middot; runda {occ.effRound} z {occ.seasonTotal}
           </span>
 
-          <div className="flex items-start gap-1.5 text-xs text-muted">
+          <div className="flex items-start gap-1.5 text-[length:var(--fs-label)] text-muted">
             <PinIcon className="size-3.5 mt-0.5 shrink-0 text-faint" />
             <span>
               {occ.name} &middot; {occ.district} &middot; {occ.address}
@@ -47,7 +47,7 @@ export function EventCard({
                   {avatars.map((p, i) => (
                     <div
                       key={p}
-                      className="size-[22px] rounded-full bg-surface-2 border-[1.5px] border-surface outline outline-border-strong flex items-center justify-center font-mono-data text-[9px] font-semibold text-ink"
+                      className="size-[22px] rounded-full bg-surface-2 border-[1.5px] border-surface outline outline-border-strong flex items-center justify-center font-mono-data text-[length:var(--fs-avatar)] font-semibold text-ink"
                       style={{ marginLeft: i === 0 ? 0 : -6 }}
                     >
                       {initials(p)}
@@ -55,48 +55,48 @@ export function EventCard({
                   ))}
                   {restCount > 0 && (
                     <div
-                      className="size-[22px] rounded-full bg-surface-2 border-[1.5px] border-surface outline outline-border-strong flex items-center justify-center font-mono-data text-[9px] font-semibold text-ink"
+                      className="size-[22px] rounded-full bg-surface-2 border-[1.5px] border-surface outline outline-border-strong flex items-center justify-center font-mono-data text-[length:var(--fs-avatar)] font-semibold text-ink"
                       style={{ marginLeft: -6 }}
                     >
                       +{restCount}
                     </div>
                   )}
                 </div>
-                <small className="text-[11px] text-faint">
+                <small className="text-[length:var(--fs-caption)] text-faint">
                   {occ.registered}/{occ.capacity} &middot; śr. poziom {occ.avgLevel}
                 </small>
               </>
             ) : (
-              <small className="text-[11px] text-faint">Bądź pierwszym zapisanym</small>
+              <small className="text-[length:var(--fs-caption)] text-faint">Bądź pierwszym zapisanym</small>
             )}
           </div>
 
-          <div className="text-sm font-semibold text-ink">Cena: {occ.price}</div>
+          <div className="text-[length:var(--fs-body)] font-semibold text-ink">Cena: {occ.price}</div>
 
           <div className="flex flex-wrap gap-2 pt-1.5">
             {signedUp ? (
               <div className="flex flex-col gap-1">
                 <button
                   disabled
-                  className="bg-accent text-ink px-3 py-2 text-sm font-semibold opacity-60 cursor-default"
+                  className="bg-accent text-ink px-3 py-2 text-[length:var(--fs-body)] font-semibold opacity-60 cursor-default"
                 >
                   Przechodzę do logowania…
                 </button>
-                <span className="text-[11px] text-faint">
+                <span className="text-[length:var(--fs-caption)] text-faint">
                   Ostatni krok: krótki ekran logowania, potem wracasz dokładnie tutaj.
                 </span>
               </div>
             ) : (
               <button
                 onClick={() => setSignedUp(true)}
-                className="bg-accent text-ink px-3 py-2 text-sm font-semibold hover:bg-ink hover:text-accent transition-colors"
+                className="bg-accent text-ink px-3 py-2 text-[length:var(--fs-body)] font-semibold hover:bg-ink hover:text-accent transition-colors"
               >
                 Zapisz się na turniej
               </button>
             )}
             <button
               onClick={() => onOpenDetails(occ.id, occ.effIso)}
-              className="border border-border-strong text-ink px-3 py-2 text-sm font-semibold hover:bg-surface-2 transition-colors"
+              className="border border-border-strong text-ink px-3 py-2 text-[length:var(--fs-body)] font-semibold hover:bg-surface-2 transition-colors"
             >
               Szczegóły
             </button>
@@ -104,7 +104,7 @@ export function EventCard({
         </div>
 
         <div
-          className="flex shrink-0 size-16 border border-border-strong items-center justify-center font-mono-data text-sm font-bold text-faint"
+          className="flex shrink-0 size-16 border border-border-strong items-center justify-center font-mono-data text-[length:var(--fs-body)] font-bold text-faint"
           style={{
             backgroundColor: "var(--surface-2)",
             backgroundImage:

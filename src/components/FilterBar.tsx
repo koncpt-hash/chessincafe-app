@@ -23,19 +23,19 @@ export function FilterBar({
   const fields = (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 border border-border bg-surface-2 p-3">
       <div className="flex items-center gap-1.5 bg-surface border border-border w-full">
-        <span className="font-mono-data pl-2.5 text-sm text-muted">⌕</span>
+        <span className="font-mono-data pl-2.5 text-[length:var(--fs-body)] text-muted">⌕</span>
         <input
           value={q}
           onChange={(e) => onQ(e.target.value)}
           type="text"
           placeholder="Szukaj kawiarni lub dzielnicy…"
-          className="w-full bg-transparent outline-none text-sm py-2 pr-2.5 pl-1.5 text-ink"
+          className="w-full bg-transparent outline-none text-[length:var(--fs-body)] py-2 pr-2.5 pl-1.5 text-ink"
         />
       </div>
       <select
         value={cafeFilter}
         onChange={(e) => onCafeFilter(e.target.value)}
-        className="w-full bg-surface border border-border px-2.5 py-2 text-sm text-ink"
+        className="w-full bg-surface border border-border px-2.5 py-2 text-[length:var(--fs-body)] text-ink"
       >
         <option value="all">Wszystkie kawiarnie</option>
         {CAFES.map((c) => (
@@ -47,7 +47,7 @@ export function FilterBar({
       <select
         value={diff}
         onChange={(e) => onDiff(e.target.value as Difficulty | "all")}
-        className="w-full bg-surface border border-border px-2.5 py-2 text-sm text-ink"
+        className="w-full bg-surface border border-border px-2.5 py-2 text-[length:var(--fs-body)] text-ink"
       >
         <option value="all">Wszystkie poziomy</option>
         <option value="poczatkujacy">Początkujący</option>
@@ -61,7 +61,7 @@ export function FilterBar({
     <div>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="sm:hidden w-full flex justify-between items-center bg-surface-2 border border-border px-3.5 py-2.5 text-sm font-semibold text-ink"
+        className="sm:hidden w-full flex justify-between items-center bg-surface-2 border border-border px-3.5 py-2.5 text-[length:var(--fs-body)] font-semibold text-ink"
       >
         <span>Filtrowanie</span>
         <span>{open ? "▲" : "▼"}</span>

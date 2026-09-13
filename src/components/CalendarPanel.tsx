@@ -39,11 +39,11 @@ export function CalendarPanel({
 
   return (
     <div className="border border-border p-3.5 flex flex-col gap-2.5">
-      <div className="flex justify-between items-center text-sm font-semibold text-ink">
+      <div className="flex justify-between items-center text-[length:var(--fs-body)] font-semibold text-ink">
         <button
           onClick={() => onNavMonth(-1)}
           aria-label="Poprzedni miesiąc"
-          className="border border-border-strong size-[22px] text-xs text-muted hover:bg-surface-2"
+          className="border border-border-strong size-[22px] text-[length:var(--fs-label)] text-muted hover:bg-surface-2"
         >
           ‹
         </button>
@@ -51,15 +51,15 @@ export function CalendarPanel({
         <button
           onClick={() => onNavMonth(1)}
           aria-label="Następny miesiąc"
-          className="border border-border-strong size-[22px] text-xs text-muted hover:bg-surface-2"
+          className="border border-border-strong size-[22px] text-[length:var(--fs-label)] text-muted hover:bg-surface-2"
         >
           ›
         </button>
       </div>
 
-      <div className="grid grid-cols-7 gap-[3px] text-[11px] text-center">
+      <div className="grid grid-cols-7 gap-[3px] text-[length:var(--fs-caption)] text-center">
         {DOW.map((d) => (
-          <span key={d} className="text-faint text-[10px] pb-0.5">
+          <span key={d} className="text-faint text-[length:var(--fs-micro)] pb-0.5">
             {d}
           </span>
         ))}
