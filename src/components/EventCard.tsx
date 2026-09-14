@@ -32,15 +32,14 @@ export function EventCard({
         </div>
 
         <div className="flex-1 min-w-0 flex flex-col gap-3">
-          <h3 className="font-display text-[length:var(--fs-card-title)] font-bold leading-tight text-ink">
-            {occ.effTitle} sezon „{occ.seasonName}”
-          </h3>
-
-          <div className="flex flex-col gap-0.5 font-body text-[length:var(--fs-body-lg)] text-ink">
-            <p className="font-bold">{occ.name}</p>
-            <p>
+          <div className="flex flex-col gap-0.5">
+            <h3 className="font-display text-[length:var(--fs-card-title)] font-bold leading-tight text-ink">
+              {occ.name}
+            </h3>
+            <p className="font-body text-[length:var(--fs-body-lg)] text-ink">
               {occ.district}, {occ.address}
             </p>
+            <p className="font-body text-[length:var(--fs-body-lg)] text-ink">Sezon „{occ.seasonName}”</p>
           </div>
 
           <div className="flex items-center gap-2.5">

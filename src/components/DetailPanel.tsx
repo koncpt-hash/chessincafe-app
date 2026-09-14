@@ -66,7 +66,6 @@ function DetailPanelBody({
   const rounds = roundsFor(cafe);
   const matched = rounds.find((r) => r.iso === iso);
   const currentRound = matched?.round ?? cafe.seasonRound;
-  const eventTitle = matched?.title ?? cafe.eventTitles[0] ?? "";
   const dateLabel = formatPL(iso);
 
   return (
@@ -86,10 +85,8 @@ function DetailPanelBody({
 
             <div className="flex justify-between gap-4 items-start flex-wrap">
               <div>
-                <h3 className="font-display text-[length:var(--fs-panel-title)] font-semibold text-ink">{eventTitle}</h3>
-                <p className="text-[length:var(--fs-body)] text-muted mt-0.5">
-                  {cafe.name} &middot; {cafe.address}
-                </p>
+                <h3 className="font-display text-[length:var(--fs-panel-title)] font-semibold text-ink">{cafe.name}</h3>
+                <p className="text-[length:var(--fs-body)] text-muted mt-0.5">{cafe.address}</p>
                 <p className="text-[length:var(--fs-body)] text-muted">
                   {dateLabel}, {cafe.time}
                 </p>
